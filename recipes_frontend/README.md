@@ -1,82 +1,43 @@
-# Lightweight React Template for KAVIA
+# Recipe Explorer — React Frontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern, responsive React app for browsing, searching, and saving recipes. This frontend uses a clean component structure, Ocean Professional theme, client-side routing, and a mock API so it runs without a backend.
 
 ## Features
-
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Ocean Professional theme (primary #2563EB, secondary #F59E0B)
+- Routing: "/", "/favorites", "/recipe/:id"
+- RecipesContext: search, filters, favorites (with localStorage persistence)
+- Mock API with artificial latency
+- Accessible controls: labeled inputs, aria-pressed on favorites, focus rings
+- Responsive grid layout, subtle shadows, rounded corners
+- Minimal dependencies: react-router-dom, prop-types
 
 ## Getting Started
+- Install dependencies (handled automatically in CI). If running locally:
+  - npm install
+- Start the development server:
+  - npm start
+- Open http://localhost:3000 to preview.
 
-In the project directory, you can run:
+No backend is required. The app uses mock data under src/services/mockData.js.
 
-### `npm start`
+## Environment Variables
+Create a .env file if needed based on .env.example.
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- REACT_APP_API_BASE_URL: Optional. Reserved for future backend integration.
 
-### `npm test`
+## Project Structure (key parts)
+- src/theme: CSS variable theme and ThemeProvider
+- src/router/AppRouter.jsx: route definitions
+- src/state/RecipesContext.jsx: app state and favorites persistence
+- src/components: reusable UI components
+- src/pages: Home, Favorites, RecipeDetail
+- src/services: mockData and apiClient with artificial delay
 
-Launches the test runner in interactive watch mode.
+## Accessibility
+- Descriptive labels, aria-pressed for favorite toggles
+- Keyboard focus rings via CSS focus styles
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Scripts
+- npm start: Run dev server
+- npm test: Run tests
+- npm run build: Build production bundle
